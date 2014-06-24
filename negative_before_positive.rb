@@ -1,3 +1,7 @@
+# Sorts an Array and puts all negative numbers before positive
+# Uses Quick Sort partitioning to sort array in place
+# Pivots on 0
+# Complexity is O(n)
 class NegativeBeforePositive
   def self.sort!(keys=[])
     p quick(keys,0,keys.size-1)
@@ -17,7 +21,6 @@ class NegativeBeforePositive
   end
  
   def self.partition(keys, left, right, pivot)
-    pivotValue = keys[pivot]
     keys[pivot], keys[right] = keys[right], keys[pivot]  
     storeIndex = left 
     for i in left..right -1 
