@@ -91,15 +91,16 @@ private
    root
   end
 
- def delete_node(root,node)
-      if root == node
-         root = remove(root)
-      elsif node < root
-         root.left = delete_node(root.left,node)
-      else
-         root.right = delete_node(root.right,node)
-      end
-     root
+  def delete_node(root,node)
+    if root == node
+       root = remove(root)
+    elsif node < root
+      root.distance_from_min -= 1 if root == @root
+      root.left = delete_node(root.left,node)
+    else
+       root.right = delete_node(root.right,node)
+    end
+    root
   end
 
   def remove(node)
