@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # Sorts an Array and puts all negative numbers before positive
 # Uses Quick Sort partitioning to sort array in place
 # Pivots on 0
@@ -33,3 +34,5 @@ class NegativeBeforePositive
     return storeIndex
   end
 end
+
+NegativeBeforePositive.sort!([1,-10,3,5,-40,0])
