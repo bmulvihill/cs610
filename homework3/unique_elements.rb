@@ -16,7 +16,7 @@ class UniqueMergeSort
     sorted = []
     until left.empty? or right.empty?
       if left.first == right.first
-        right = right - [right.first]
+        right = right - [right.first] # O(n) to remove item from array
       elsif left.first <= right.first
         sorted << left.shift
       else
@@ -27,4 +27,4 @@ class UniqueMergeSort
   end
 end
 
-p UniqueMergeSort.mergesort([3,3,5,1,8,7,2,4,1,1,1,1,2])
+p UniqueMergeSort.mergesort([6,3,3,5,1,8,7,2,4,1,1,1,1,2])
