@@ -2,7 +2,7 @@
 #!/usr/bin/env ruby
 # Take an array of values and return the median element
 # Must be done is O(n) time
-class MedianSelect
+class MedianElement
   
   def self.sort!(keys=[])
     median_element = (keys.size-1)/2
@@ -40,4 +40,4 @@ class MedianSelect
   end
 end
 
-MedianSelect.sort!([1,6,8,2,4,10,0])
+MedianElement.sort!([1,6,8,2,4,10,0])

@@ -16,7 +16,7 @@ class UniqueMergeSort
     sorted = []
     until left.empty? or right.empty?
       if left.first == right.first
-        right = right - [right.first] # O(n) to remove item from array
+        right.shift # O(n) to remove item from array
       elsif left.first <= right.first
         sorted << left.shift
       else
