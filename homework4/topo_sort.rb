@@ -2,7 +2,7 @@
 # Performs topographical sort using Tarjan's algorithm
 require 'tsort'
 
-class TsortableHash < Hash
+class TsortHash < Hash
   include TSort
   alias tsort_each_node each_key
   def tsort_each_child(node, &block)
@@ -10,8 +10,8 @@ class TsortableHash < Hash
   end
 end
 
-dependency_hash = 
-  TsortableHash[ 
+graph = 
+  TsortHash[ 
     {
       :a =>[], 
       :b =>[:a], 
@@ -25,4 +25,4 @@ dependency_hash =
       :j =>[:i, :h]
       } ]
 
-  p dependency_hash.tsort
+  p graph.tsort
