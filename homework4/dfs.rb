@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 # Depth First Search
-require 'set'
+
 graph = {'A'=>['B', 'C', 'E'],
         'B'=> ['A', 'D', 'F'],
-        'C'=> ['A', 'G'],
+        'C'=> ['A', 'G', 'E'],
         'D'=> ['B'],
-        'E'=> ['A'],
+        'E'=> ['A','F', 'C'],
         'F'=> ['B', 'E'],
         'G'=> ['C']
       }
@@ -14,7 +14,10 @@ class DepthFirst
   def dfs(graph, start, visited=[])
     visited << start
     graph[start].each do |node|
-      dfs(graph, node, visited) unless visited.include?(node)
+      unless visited.include?(node)
+        p 'triangle in graph' if (graph[node] & graph[start]).size == 1
+        dfs(graph, node, visited) 
+      end
     end
     return visited
   end
