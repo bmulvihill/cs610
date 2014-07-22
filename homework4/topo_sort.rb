@@ -12,17 +12,17 @@ end
 
 dependency_hash = 
   TsortableHash[ 
-  	{
-  		:a =>[], 
-  		:b =>[:a], 
-  		:c =>[:b, :e], 
-  		:d =>[:a, :b],
-  		:e =>[:d, :b],
-  		:f =>[:c, :e, :g],
-  		:g =>[:d, :e, :h],
-  		:h =>[:f],
-  		:i =>[:g],
-  		:j =>[:i, :h]
-  		} ]
+    {
+      :a =>[], 
+      :b =>[:a], 
+      :c =>[:b, :e], 
+      :d =>[:a, :b],
+      :e =>[:d, :b],
+      :f =>[:c, :e, :g],
+      :g =>[:d, :e, :h],
+      :h =>[:f],
+      :i =>[:g],
+      :j =>[:i, :h]
+      } ]
 
   p dependency_hash.tsort
