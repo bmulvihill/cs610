@@ -15,7 +15,7 @@ class DepthFirst
     visited << start
     graph[start].each do |node|
       unless visited.include?(node)
-        p 'triangle in graph' if (graph[node] & graph[start]).size == 1
+        return 'triangle in graph' if (graph[node] & graph[start]).size == 1
         dfs(graph, node, visited) 
       end
     end
