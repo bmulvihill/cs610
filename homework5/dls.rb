@@ -17,7 +17,7 @@ class DepthLimited
     @minimum_path = {}
   end
 
-  def dfs(graph, start, finish, depth, visited=[], current_path=[], current_cost=0)
+  def dls(graph, start, finish, depth, visited=[], current_path=[], current_cost=0)
     visited << start
     if depth == 0
       if start == finish
@@ -31,7 +31,7 @@ class DepthLimited
 
     graph[start].each do |node|
       unless current_path.include?(node[0])
-        dfs(graph, node[0], finish, depth - 1, visited, current_path + [start], current_cost + node[1])
+        dls(graph, node[0], finish, depth - 1, visited, current_path + [start], current_cost + node[1])
       end
     end
     return visited
@@ -39,6 +39,6 @@ class DepthLimited
 end
 
 search = DepthLimited.new
-search.dfs(graph, 'A', 'F', 2)
+search.dls(graph, 'A', 'F', 2)
 p search.minimum_path
 p search.minimum_cost
