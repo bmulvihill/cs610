@@ -10,12 +10,11 @@ graph = {'A'=>[['B',6], ['C',1], ['E',2]],
         'G'=> [['C',3]]
       }
 
-class DepthFirst
+class DepthLimited
   attr_reader :minimum_path, :minimum_cost
   def initialize
-    @minimum_cost = 100 #Infinity
+    @minimum_cost = 1000 #Infinity
     @minimum_path = {}
-    @depth = 1
   end
 
   def dfs(graph, start, finish, depth, visited=[], current_path=[], current_cost=0)
@@ -39,7 +38,7 @@ class DepthFirst
   end
 end
 
-search = DepthFirst.new
+search = DepthLimited.new
 search.dfs(graph, 'A', 'F', 2)
 p search.minimum_path
 p search.minimum_cost
