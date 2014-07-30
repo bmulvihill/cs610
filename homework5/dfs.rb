@@ -22,16 +22,16 @@ class DepthFirst
     visited << start
     if depth == 0
       if start == finish
-        #if current_cost < @minimum_cost
+        if current_cost < @minimum_cost
           @minimum_path = current_path + [start] 
-          #@minimum_cost[start] = current_cost 
-        #end
+          @minimum_cost = current_cost 
+        end
       end
       return
     end
 
     graph[start].each do |node|
-      unless visited.include?(node[0])
+      unless current_path.include?(node[0])
         dfs(graph, node[0], finish, depth - 1, visited, current_path + [start], current_cost + node[1])
       end
     end
@@ -40,6 +40,6 @@ class DepthFirst
 end
 
 search = DepthFirst.new
-p search.dfs(graph, 'A', 'E', 2)
+search.dfs(graph, 'A', 'F', 2)
 p search.minimum_path
 p search.minimum_cost
