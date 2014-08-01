@@ -17,8 +17,7 @@ class DepthLimited
     @minimum_path = {}
   end
 
-  def dls(graph, start, finish, depth, visited=[], current_path=[], current_cost=0)
-    visited << start
+  def dls(graph, start, finish, depth, current_path=[], current_cost=0)
     if depth == 0
       if start == finish
         if current_cost < @minimum_cost
@@ -31,10 +30,9 @@ class DepthLimited
 
     graph[start].each do |node|
       unless current_path.include?(node[0])
-        dls(graph, node[0], finish, depth - 1, visited, current_path + [start], current_cost + node[1])
+        dls(graph, node[0], finish, depth - 1, current_path + [start], current_cost + node[1])
       end
     end
-    return visited
   end
 end
 
