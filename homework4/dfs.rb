@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 # Depth First Search
+# Determine if there is a triangle in a given graph (3 node cycle)
 
 graph = {'A'=>['B', 'C', 'E'],
         'B'=> ['A', 'D', 'F'],
