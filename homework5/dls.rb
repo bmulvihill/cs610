@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
-# Depth First Search
+# Depth Limited Search
+# Find the minimum cost/path on a graph given a start node, end node and set distance to travel
 
 graph = {'A'=>[['B',6], ['C',1], ['E',2]],
         'B'=> [['A',6], ['D',2], ['F',4]],
